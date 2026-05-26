@@ -51,7 +51,6 @@
                 progressFill.style.width = progress + '%';
                 if(progress >= 100) {
                     clearInterval(interval);
-                    // 【強制觸發】：解鎖瞬間強制播放音樂
                     bgMusic.play().catch(e => console.log("播放被攔截，請輕點螢幕"));
                     document.getElementById('screen0').classList.add('hidden');
                     document.getElementById('screen1').classList.remove('hidden');

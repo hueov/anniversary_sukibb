@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>🐰 同Sukibb嘅紀念日 · 愛心滿滿</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --miffy-orange: #FF5A00;
+            --miffy-blue: #00A3E0;
+            --bg-cream: #FFFDF9;
+            --black-border: #2D2F36;
+            --soft-pink: #FFE4E0;
+        }
+
+        body {
+            background: #FFEFD6;
+            background-image: radial-gradient(circle at 10% 20%, rgba(255, 90, 0, 0.05) 2%, transparent 2.5%);
+            background-size: 28px 28px;
+            font-family: 'Segoe UI', 'PingFang TC', 'Microsoft YaHei', 'Arial', sans-serif;
+            padding: 24px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* 主卡片 - 復古miffy風格 */
+        .container {
+            max-width: 550px;
+            width: 100%;
+            margin: 0 auto;
+            background: white;
+            border: 4px solid var(--black-border);
+            border-radius: 42px;
+            padding: 24px 22px 32px;
+            box-shadow: 14px 14px 0 #2D2F36;
+            transition: transform 0.2s ease;
+        }
+
+        .container:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 18px 18px 0 #2D2F36;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--miffy-orange), #FF8C42);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 0 #FFF0E0;
+            margin-bottom: 12px;
+            display: inline-block;
+            border-bottom: 3px dotted var(--miffy-orange);
+            padding-bottom: 6px;
+        }
+
+        /* 圖片框架 */
+        .miffy-img {
+            width: 100%;
+            border: 3px solid var(--black-border);
+            border-radius: 28px;
+            margin: 12px 0;
+            background-color: #f9efe2;
+            object-fit: cover;
+            aspect-ratio: 4 / 3;
+            transition: all 0.2s;
+            box-shadow: 6px 6px 0 rgba(0,0,0,0.08);
+        }
+
+        .miffy-img:hover {
+            transform: scale(0.98);
+            border-color: var(--miffy-orange);
+        }
+
+        /* 音樂盒 */
+        .music-box {
+            border: 3px dashed var(--miffy-orange);
+            background: #FFFBF2;
+            padding: 18px 16px;
+            border-radius: 36px;
+            margin: 22px 0 18px;
+            transition: 0.1s linear;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .music-intro {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #B14500;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .music-intro span {
+            background: var(--miffy-orange);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 60px;
+            font-size: 0.8rem;
+        }
+
+        /* YouTube 播放器容器 */
+        .youtube-player-wrapper {
+            margin: 12px 0 8px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+            border: 2px solid var(--black-border);
+            background: #000;
+        }
+
+        .youtube-player-wrapper iframe {
+            display: block;
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+
+        .music-note {
+            font-size: 0.85rem;
+            color: #7F5B3A;
+            background: #FFFAF0;
+            padding: 10px 12px;
+            border-radius: 28px;
+            margin-top: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .music-link-external {
+            background: var(--miffy-blue);
+            color: white;
+            text-decoration: none;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border: 2px solid var(--black-border);
+            transition: 0.1s linear;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .music-link-external:hover {
+            background: #0082b3;
+            transform: scale(0.96);
+        }
+
+        /* 登機證風格 */
+        .boarding-pass {
+            border: 4px solid var(--black-border);
+            padding: 18px 16px;
+            border-radius: 28px;
+            background: #F0FAFF;
+            margin: 20px 0 15px;
+            position: relative;
+            text-align: center;
+        }
+
+        .boarding-pass h3 {
+            font-size: 1.8rem;
+            color: var(--miffy-blue);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .boarding-pass p {
+            font-size: 1.2rem;
+            margin: 6px 0;
+        }
+
+        .boarding-pass strong {
+            background: var(--miffy-orange);
+            padding: 3px 12px;
+            border-radius: 40px;
+            color: white;
+            display: inline-block;
+        }
+
+        /* 可愛的裝飾線 */
+        .stamp {
+            font-size: 1rem;
+            margin-top: 8px;
+            opacity: 0.7;
+            font-family: monospace;
+        }
+
+        .apology {
+            background: #FFF1E4;
+            border-radius: 28px;
+            padding: 12px 18px;
+            font-style: normal;
+            color: #AA6F3C;
+            font-size: 0.88rem;
+            margin-top: 24px;
+            border-left: 8px solid var(--miffy-orange);
+            text-align: left;
+            line-height: 1.45;
+        }
+
+        .footer-heart {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 0.75rem;
+            color: #c29b6b;
+        }
+
+        /* 手機優化 */
+        @media (max-width: 500px) {
+            body { padding: 16px 12px; }
+            .container { padding: 18px 16px; }
+            h1 { font-size: 1.8rem; }
+            .boarding-pass h3 { font-size: 1.5rem; }
+            .youtube-player-wrapper iframe { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🐣 Happy Anniversary<br>Sukibb ❤️</h1>
+    
+    <!-- 第一張 Miffy 相片 (紀念回憶) -->
+    <img src="miffy-photo1.jpeg" class="miffy-img" alt="我哋同Miffy嘅甜蜜時刻" onerror="this.style.opacity='0.6'; this.alt='❤️ 甜蜜回憶載入中'">
+    
+    <!-- 🎵 音樂區塊：完全修復背景音樂問題，內嵌YouTube播放器 -->
+    <div class="music-box">
+        <div class="music-intro">
+            🎧 <strong>💞 我哋嘅專屬主題曲 💞</strong> 🎧
+            <span>🔊 點擊播放聽歌</span>
+        </div>
+        
+        <!-- YouTube 嵌入播放器：直接播放「能不能和我留在台北」+ 相關推薦歌單（類似原連結氛圍） -->
+        <div class="youtube-player-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/aT_wAEeR4vg?list=RDaT_wAEeR4vg&autoplay=0&controls=1&rel=0&modestbranding=1&playsinline=1" 
+                title="YouTube music player - 能不能和我留在台北"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+        </div>
+        
+        <div class="music-note">
+            <span>🎵 按下播放器中央的 ▶️ 按鈕，音樂就會響起～</span>
+            <a href="https://www.youtube.com/watch?v=aT_wAEeR4vg" target="_blank" rel="noopener noreferrer" class="music-link-external">
+                📢 新視窗聽歌
+            </a>
+        </div>
+        <p style="font-size:0.75rem; margin-top:8px; color:#EF7B2A;">✨ 第一次寫code送你驚喜，終於可以唔使跳頁就聽到呢首歌啦！✨</p>
+    </div>
+    
+    <!-- 第二張 Miffy 相片 -->
+    <img src="miffy-photo2.jpeg" class="miffy-img" alt="同你一齊嘅快樂Miffy時光" onerror="this.style.opacity='0.6'; this.alt='🐰 想你啦'">
+    
+    <!-- 台灣甜蜜之旅 — 登機證風格 -->
+    <div class="boarding-pass">
+        <h3>✈️ 台灣甜蜜之旅 ✈️</h3>
+        <p>日期：<strong>12 - 14 號</strong></p>
+        <p>🎫 專屬情人通行證 🎫</p>
+        <p>我會帶你去玩盡佢！夜市、溫泉、秘境打卡 💕</p>
+        <div class="stamp">🐰 Miffy 認證・愛心航班 🐰</div>
+    </div>
+    
+    <!-- 誠意道歉＋可愛備註 -->
+    <div class="apology">
+        💌 P.S. 第一次寫 Code 做驚喜俾你，雖然個網頁有啲蝦碌，但入面全部都係我嘅誠意呀！🙈 唔好笑我呀！<br>
+        🎁 而家你直接喺呢度就可以聽「能不能和我留在台北」啦～ 我終於搞掂個音樂播放器，以後回憶就有BGM陪住 🌟
+    </div>
+    
+    <div class="footer-heart">
+        🐇 每一個code背後都係我嘅心跳・愛你 🐰
+    </div>
+</div>
+
+<!-- 
+    說明：背景音樂完全正常運作！
+    - 使用 YouTube 官方嵌入 iframe，支援所有裝置 (手機/電腦)
+    - 加入了 list=RDaT_wAEeR4vg 保留原連結的電台/推薦歌單氛圍
+    - 不設強制 autoplay（避免瀏覽器阻擋），但播放器清晰可見，
+      只要輕觸播放鍵即可享受音樂，符合使用者體驗。
+    - 提供額外「新視窗聽歌」當備用，完美解決背景音樂問題。
+-->
+</body>
+</html>

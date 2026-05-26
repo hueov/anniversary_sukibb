@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Anniversary My Love 🐰❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --miffy-orange: #FF5A00; --miffy-blue: #00A3E0; --bg-cream: #FFFDF9; --black-border: #333333; --love-red: #FF3B30; }
+        body { background-color: #FFF3E0; margin: 0; padding: 20px; display: flex; justify-content: center; min-height: 100vh; font-family: 'Nunito', sans-serif; text-align: center; }
+        .container { max-width: 500px; width: 100%; background-color: var(--bg-cream); border: 5px solid var(--black-border); border-radius: 35px; padding: 30px; box-shadow: 8px 8px 0px var(--black-border); }
+        .unlock-area { margin: 40px auto; width: 120px; height: 120px; background-color: #FFEAEB; border: 4px dashed var(--love-red); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 50px; cursor: pointer; }
+        .progress-bar { width: 80%; height: 10px; background: #eee; border-radius: 10px; margin: 20px auto; border: 2px solid var(--black-border); }
+        .progress-fill { height: 100%; width: 0%; background: var(--love-red); transition: width 0.2s; }
+        .hidden { display: none !important; }
+        .boarding-pass { background: white; border: 4px solid var(--black-border); border-radius: 15px; padding: 20px; margin: 20px 0; text-align: left; }
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+
+    <div class="container" id="screen0">
+        <h1>專屬身份驗證 🔒</h1>
+        <p>長按心心解鎖驚喜並開啟浪漫音樂：</p>
+        <div class="unlock-area" id="unlockBtn">❤️</div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <div class="container hidden" id="screen1">
+        <h1>Happy Anniversary! ❤️</h1>
+        <img src="miffy-photo1.jpeg" style="width:100%; border:3px solid #333; margin:10px 0;">
+        <div class="boarding-pass">
+            <h3>✈️ 台灣甜蜜之旅</h3>
+            <p>日期：<strong>12 - 14 號</strong></p>
+            <p>目標：製造無限回憶！</p>
+        </div>
+        <button onclick="alert('我哋去玩啦！')" style="padding:15px; width:100%; font-size:18px;">我好期待！</button>
+    </div>
+
+    <script>
+        const bgMusic = document.getElementById('bgMusic');
+        const unlockBtn = document.getElementById('unlockBtn');
+        const progressFill = document.getElementById('progressFill');
+        let progress = 0;
+
+        unlockBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const interval = setInterval(() => {
+                progress += 10;
+                progressFill.style.width = progress + '%';
+                if(progress >= 100) {
+                    clearInterval(interval);
+                    // 【強制觸發】：解鎖瞬間強制播放音樂
+                    bgMusic.play().catch(e => console.log("播放被攔截，請輕點螢幕"));
+                    document.getElementById('screen0').classList.add('hidden');
+                    document.getElementById('screen1').classList.remove('hidden');
+                }
+            }, 200);
+            unlockBtn.addEventListener('touchend', () => clearInterval(interval), {once: true});
+        });
+    </script>
+</body>
+</html>
